@@ -20,7 +20,7 @@ func FindMultiples(s string) (totalSum int, filteredSum int) {
 	m, err := Multiples(s)
 	if err != nil {
 		fmt.Printf("unable to process segment: %v\n", err.Error())
-		return 0,0
+		return 0, 0
 	}
 
 	sum := 0
@@ -30,10 +30,10 @@ func FindMultiples(s string) (totalSum int, filteredSum int) {
 	totalSum += sum
 
 	m, err = FilteredMultiples(s)
-    fmt.Println(m)
+	fmt.Println(m)
 	if err != nil {
 		fmt.Printf("unable to process segment: %v\n", err.Error())
-		return 0,0
+		return 0, 0
 	}
 
 	sum = 0
@@ -41,7 +41,7 @@ func FindMultiples(s string) (totalSum int, filteredSum int) {
 		sum += val[0] * val[1]
 	}
 	filteredSum += sum
-	
+
 	return
 }
 
@@ -49,12 +49,13 @@ func FindMultiples(s string) (totalSum int, filteredSum int) {
 type State uint8
 
 const (
-	Start State = iota  // Start is the initial state
-	MulWithPar          // MulWithPar is the State when we've matched a mul command and need to find the operands
-	FirstOperand // FirstOperand is the state used to identify the digits for the first operand
-	SecondOperand // SecondOperand is the state used after identifying a comma after the first operand
+	Start         State = iota // Start is the initial state
+	MulWithPar                 // MulWithPar is the State when we've matched a mul command and need to find the operands
+	FirstOperand               // FirstOperand is the state used to identify the digits for the first operand
+	SecondOperand              // SecondOperand is the state used after identifying a comma after the first operand
 )
-// Filtered multiples returns the multiple pairs check for do(). 
+
+// Filtered multiples returns the multiple pairs check for do().
 //
 // This could be simplified to use a regex but I wanted to have fun with a Finite State Machine.
 func FilteredMultiples(str string) ([][]int, error) {
@@ -75,7 +76,7 @@ func FilteredMultiples(str string) ([][]int, error) {
 				do = true
 				i += 4
 			} else if i < (len(s)-7) && slices.Equal(s[i:i+7], []string{"d", "o", "n", "'", "t", "(", ")"}) {
-                do = false
+				do = false
 				i += 7
 			} else {
 				i++
@@ -125,7 +126,7 @@ func FilteredMultiples(str string) ([][]int, error) {
 	return pairs, nil
 }
 
-// Filtered multiples returns the multiple pairs. 
+// Filtered multiples returns the multiple pairs.
 //
 // This could be simplified to use a regex but I wanted to have fun with a Finite State Machine.
 func Multiples(str string) ([][]int, error) {

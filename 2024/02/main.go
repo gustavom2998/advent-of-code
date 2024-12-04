@@ -84,7 +84,7 @@ func CheckSequence(a []int) (result bool, idx int) {
 		currentDiff := a[i] - a[i-1]
 		// Check constantly increasing or decreasing
 		if (i > 1) && ((lastDiff > 0) != (currentDiff > 0)) {
-			return false, i - 1 
+			return false, i - 1
 		}
 
 		// Check increase or decrease is greater than zero and less than four
