@@ -9,17 +9,17 @@ import (
 
 func TestExerciseA(t *testing.T) {
 	type MemorySegmentCase struct {
-		Input                   []string
+		Input                   string
 		WantTotal, WantFiltered int
 	}
 	segments := []MemorySegmentCase{
 		MemorySegmentCase{
-			Input:        []string{"xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))"},
+			Input:        "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))",
 			WantTotal:    161,
-			WantFiltered: 8,
+			WantFiltered: 161,
 		},
 		MemorySegmentCase{
-			Input:        []string{"xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))"},
+			Input:        "xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))",
 			WantTotal:    161,
 			WantFiltered: 48,
 		},
