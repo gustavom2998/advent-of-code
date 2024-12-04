@@ -30,7 +30,6 @@ func FindMultiples(s string) (totalSum int, filteredSum int) {
 	totalSum += sum
 
 	m, err = FilteredMultiples(s)
-	fmt.Println(m)
 	if err != nil {
 		fmt.Printf("unable to process segment: %v\n", err.Error())
 		return 0, 0
@@ -84,7 +83,9 @@ func FilteredMultiples(str string) ([][]int, error) {
 		case MulWithPar:
 			if isDigit(s[i]) {
 				state = FirstOperand
-			}
+			} else {
+                state = Start
+            }
 		case FirstOperand:
 			if isDigit(s[i]) {
 				numbers1 = append(numbers1, s[i])
@@ -147,7 +148,9 @@ func Multiples(str string) ([][]int, error) {
 		case MulWithPar:
 			if isDigit(s[i]) {
 				state = FirstOperand
-			}
+			} else {
+                state = Start
+            }
 		case FirstOperand:
 			if isDigit(s[i]) {
 				numbers1 = append(numbers1, s[i])
