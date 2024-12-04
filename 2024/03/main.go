@@ -56,7 +56,8 @@ const (
 
 // Filtered multiples returns the multiple pairs check for do().
 //
-// This could be simplified to use a regex but I wanted to have fun with a Finite State Machine.
+// This could be simplified to use a regex but I wanted to have fun
+// with a Finite State Machine (or something that resembles one).
 func FilteredMultiples(str string) ([][]int, error) {
 	state := Start
 	pairs := [][]int{}
@@ -129,7 +130,8 @@ func FilteredMultiples(str string) ([][]int, error) {
 
 // Filtered multiples returns the multiple pairs.
 //
-// This could be simplified to use a regex but I wanted to have fun with a Finite State Machine.
+// This could be simplified to use a regex but I wanted to
+// have fun with a Finite State Machine (or something that resembles one).
 func Multiples(str string) ([][]int, error) {
 	state := Start
 	pairs := [][]int{}
