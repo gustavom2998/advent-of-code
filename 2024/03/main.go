@@ -84,8 +84,8 @@ func FilteredMultiples(str string) ([][]int, error) {
 			if isDigit(s[i]) {
 				state = FirstOperand
 			} else {
-                state = Start
-            }
+				state = Start
+			}
 		case FirstOperand:
 			if isDigit(s[i]) {
 				numbers1 = append(numbers1, s[i])
@@ -149,8 +149,8 @@ func Multiples(str string) ([][]int, error) {
 			if isDigit(s[i]) {
 				state = FirstOperand
 			} else {
-                state = Start
-            }
+				state = Start
+			}
 		case FirstOperand:
 			if isDigit(s[i]) {
 				numbers1 = append(numbers1, s[i])
