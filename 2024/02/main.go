@@ -18,13 +18,13 @@ func main() {
 	a := ProcessReports(input1)
 	if len(a) > 0 {
 		// Answer: 2, 4
-        cs, cas := CountSafe(a)
+		cs, cas := CountSafe(a)
 		fmt.Printf("Input 1 - : Safe: %v Almost Safe: %v\n", cs, cas)
 	}
 	b := ProcessReports(input2)
 	if len(b) > 0 {
 		// Answer: 631, 665
-        cs, cas := CountSafe(b)
+		cs, cas := CountSafe(b)
 		fmt.Printf("Input 2 - : Safe: %v Almost Safe: %v\n", cs, cas)
 	}
 }
@@ -62,7 +62,7 @@ func CountSafe(a [][]int) (countSafe, countAlmostSafe int) {
 		if ok {
 			countSafe += 1
 		}
-        ok  = CheckSequenceWithFailure(r)
+		ok = CheckSequenceWithFailure(r)
 		if ok {
 			countAlmostSafe += 1
 		}
@@ -84,12 +84,12 @@ func CheckSequence(a []int) (result bool, idx int) {
 		currentDiff := a[i] - a[i-1]
 		// Check constantly increasing or decreasing
 		if (i > 1) && ((lastDiff > 0) != (currentDiff > 0)) {
-			return false, i-1
+			return false, i - 1 
 		}
 
 		// Check increase or decrease is greater than zero and less than four
 		if abs(currentDiff) < 1 || abs(currentDiff) > 3 {
-			return false, i-1
+			return false, i - 1
 		}
 
 		lastDiff = currentDiff
@@ -120,7 +120,6 @@ func CheckSequenceWithFailure(a []int) (result bool) {
 			return tryRight
 		}
 	}
-
 
 	item := slices.Clone(a)
 	tryItem, _ := CheckSequence(slices.Delete(item, idx, idx+1))
